@@ -266,3 +266,22 @@ INSERT INTO user_belong (id, object_id, object_type, user_id, user_type_code, st
 INSERT INTO user_belong (id, object_id, object_type, user_id, user_type_code, startpoint, endpoint) VALUES (4, 3, 2, 2, 'admin', null, null);
 INSERT INTO user_belong (id, object_id, object_type, user_id, user_type_code, startpoint, endpoint) VALUES (5, 4, 2, 2, 'admin', null, null);
 INSERT INTO user_belong (id, object_id, object_type, user_id, user_type_code, startpoint, endpoint) VALUES (6, 5, 2, 2, 'admin', null, null);
+
+--changeset ochertanova:add_reference_task_tags
+insert into REFERENCE (code, TITLE, REF_TYPE)
+-- TASK_TAG
+values ('front', 'FRONT', 8),
+       ('back', 'BACK', 8),
+       ('analytical', 'ANALYTICAL', 8),
+       ('dev', 'DEV', 8),
+       ('qa', 'QA', 8),
+       ('lt', 'LT', 8),
+       ('devops', 'DEVOPS', 8),
+       ('pm', 'PM', 8),
+       ('analyst', 'ANALYST', 8);
+
+-- --changeset ochertanova:add_activity_for_admin
+insert into ACTIVITY (ID, AUTHOR_ID, TASK_ID, UPDATED,STATUS_CODE)
+values (1,2,2,'2023-06-01 09:00:05','in progress'),
+       (2,2,2,'2023-06-02 18:00:05','ready'),
+       (3,2,2,'2023-06-03 12:12:00','done');
