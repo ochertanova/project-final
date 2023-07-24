@@ -22,4 +22,7 @@ public interface ProfileMapper {
 
     @Mapping(target = "contacts", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
     ProfileTo fromPostToTo(ProfilePostRequest profilePostRequest);
+
+    @Mapping(target = "mailNotifications", expression = "java(ProfileUtil.notificationsToMask(to.getMailNotifications()))")
+    Profile toEntity(ProfileTo to);
 }

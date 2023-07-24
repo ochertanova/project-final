@@ -1,5 +1,6 @@
 package com.javarush.jira.profile.internal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.javarush.jira.common.HasId;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Profile implements HasId {
     @Id
     @Column(name = "id")
